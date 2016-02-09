@@ -24,4 +24,7 @@ public class PlayerMovement : MonoBehaviour {
         rb.AddForce(transform.up * jumpForce);
         Debug.Log("Jumping");
     }
+
+    void Move()
+    { }
 }
