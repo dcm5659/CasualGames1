@@ -158,6 +158,7 @@ GameObject:
   - 23: {fileID: 159151037}
   - 54: {fileID: 159151041}
   - 114: {fileID: 159151042}
+  - 114: {fileID: 159151043}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Player
@@ -251,6 +252,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 400
   rb: {fileID: 159151041}
+--- !u!114 &159151043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 159151036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5da1adb999b5a74d8bd6fc09a0907b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 108924, guid: 2f7ac9a5c1537484b85bc0c166ae3a0c, type: 2}
 --- !u!1 &987721561
 GameObject:
   m_ObjectHideFlags: 0
