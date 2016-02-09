@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Rigidbody rb = this.GetComponent<Rigidbody>();
-        rb.velocity = Camera.main.transform.forward * speed;
+        rb.velocity = Camera.main.transform.up * speed;
 	}
 	
 	// Update is called once per frame
