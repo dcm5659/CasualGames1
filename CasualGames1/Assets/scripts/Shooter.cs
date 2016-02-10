@@ -26,6 +26,6 @@ public class Shooter : MonoBehaviour {
 
     void spawnFlare() {
         Vector3 pos = GameObject.Find("Capsule").transform.position;
-        Instantiate(prefab, new Vector3(pos.x, pos.y + 4, pos.z), Quaternion.identity);
+        Instantiate(prefab, new Vector3(pos.x + 0.5f, pos.y + 4, pos.z), Quaternion.identity);
     }
 }
