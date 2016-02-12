@@ -4,7 +4,6 @@ using System.Collections;
 public class Shooter : MonoBehaviour {
 
     public GameObject prefab;
-
     Light mainLight;
     // Use this for initialization
     void Start () {

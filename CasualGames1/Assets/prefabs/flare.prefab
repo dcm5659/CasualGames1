@@ -12,7 +12,6 @@ GameObject:
   - 135: {fileID: 13596200}
   - 23: {fileID: 2310730}
   - 54: {fileID: 5462354}
-  - 114: {fileID: 11411816}
   - 108: {fileID: 10893836}
   - 114: {fileID: 11485484}
   - 96: {fileID: 9616184}
@@ -82,7 +81,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!96 &9616184
 TrailRenderer:
   m_ObjectHideFlags: 1
@@ -162,18 +161,6 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 10, y: 10}
---- !u!114 &11411816
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 108924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61063ecaf91b765419fe4cd83494a813, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
 --- !u!114 &11485484
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -280,6 +267,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_UseLightProbes
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_CollisionDetection
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
