@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour {
     private bool jumping;
 	private float jumpForce;
 	private float moveForce;
+    private float maxSpeed;
 	private float dist;
 	private int round;
 
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour {
         jumping = false;
         jumpForce = 400;
         moveForce = 10;
+        maxSpeed = 5;
 		goalDistance ();
 	}
 	
@@ -56,6 +58,12 @@ public class PlayerMovement : MonoBehaviour {
         {
             rb.AddForce(transform.right * moveForce);
         }
+        if (rb.velocity.x > maxSpeed || rb.velocity.x < -1 * maxSpeed)
+        {
+            Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+            Debug.Log("CLAMPS!");
+        }
+
     }
 
     void OnCollisionEnter(Collision col)
