@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour {
         if (rb.velocity.y < -1)
         {
             jumping = true;
-            Debug.Log("falling!");
+            //Debug.Log("falling!");
         }
     }
 
