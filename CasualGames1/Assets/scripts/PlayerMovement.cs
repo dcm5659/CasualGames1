@@ -5,18 +5,11 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
     
     public Rigidbody rb;
-	public GameObject goal;
-
-	public Text distToEnd;
 
     private bool jumping;
 	private float jumpForce;
 	private float moveForce;
     private float maxSpeed;
-	private float dist;
-	private int round;
-
-
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +18,6 @@ public class PlayerMovement : MonoBehaviour {
         jumpForce = 400;
         moveForce = 10;
         maxSpeed = 5;
-		goalDistance ();
 	}
 	
 	// Update is called once per frame
@@ -35,7 +27,6 @@ public class PlayerMovement : MonoBehaviour {
         }
         Move();
         fallCheck();
-		goalDistance ();
     }
 
     void Jump()
@@ -83,12 +74,4 @@ public class PlayerMovement : MonoBehaviour {
             //Debug.Log("falling!");
         }
     }
-
-	void goalDistance()
-	{
-		dist = Vector3.Distance (goal.transform.position,transform.position);
-		round = Mathf.RoundToInt (dist);
-		distToEnd.text = "Distance to End: " + round.ToString();
-		//Debug.Log (round);
-	}
 }
