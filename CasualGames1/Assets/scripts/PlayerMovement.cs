@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         jumping = false;
         jumpForce = 400;
-        moveForce = 10;
+        moveForce = 25;
         maxSpeed = 5;
 	}
 	
@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour {
         }
         Move();
         fallCheck();
+        Debug.Log("speed " + rb.velocity);
     }
 
     void Jump()
@@ -34,7 +35,7 @@ public class PlayerMovement : MonoBehaviour {
         if (!jumping)
         {
             rb.AddForce(transform.up * jumpForce);
-            Debug.Log("Jumping");
+            //Debug.Log("Jumping");
             jumping = true;
         }
     }
@@ -49,10 +50,13 @@ public class PlayerMovement : MonoBehaviour {
         {
             rb.AddForce(transform.right * moveForce);
         }
-        if (rb.velocity.x > maxSpeed || rb.velocity.x < -1 * maxSpeed)
+        if (rb.velocity.z > maxSpeed)
         {
-            Vector3.ClampMagnitude(rb.velocity, maxSpeed);
-            Debug.Log("CLAMPS!");
+            rb.velocity = new Vector3(rb.velocity.x,rb.velocity.y, maxSpeed); 
+        }
+        if (rb.velocity.z < maxSpeed *-1)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, maxSpeed *-1);
         }
 
     }
@@ -62,7 +66,7 @@ public class PlayerMovement : MonoBehaviour {
         if (col.gameObject.tag == "Platform")
         {
             jumping = false;
-            Debug.Log("able to jump");
+            //Debug.Log("able to jump");
         }
     }
 
