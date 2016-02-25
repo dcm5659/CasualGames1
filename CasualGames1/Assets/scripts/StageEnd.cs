@@ -6,12 +6,14 @@ public class StageEnd : MonoBehaviour {
 	public GameObject player;
 	public Vector3 startPos;
 	private Rigidbody rb;
+	private PlayerMovement pScript;
 
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find ("Capsule");
 		//reference to the players rigidbody
 		rb = player.GetComponent<Rigidbody> ();
+		pScript = GameObject.Find ("Capsule").GetComponent<PlayerMovement>();
 	}
 	
 	// Update is called once per frame
@@ -26,6 +28,7 @@ public class StageEnd : MonoBehaviour {
 			rb.velocity = Vector3.zero;
 			//teleports the player to its start position(set manually)
 			player.transform.position = startPos;
+			pScript.frozenTime = 3;
 		}
 	}
 }

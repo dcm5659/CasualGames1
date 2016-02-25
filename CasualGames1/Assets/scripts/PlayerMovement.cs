@@ -5,7 +5,6 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
     
     public Rigidbody rb;
-
     private bool jumping;
 	private float jumpForce;
 	private float moveForce;
