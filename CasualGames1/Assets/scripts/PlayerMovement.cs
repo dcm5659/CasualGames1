@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour {
     
     public Rigidbody rb;
     private bool jumping;
+	public float frozenTime = 1;
 	private float jumpForce;
 	private float moveForce;
     private float maxSpeed;
@@ -21,6 +22,10 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if(frozenTime > 0){
+			frozenTime -= Time.deltaTime;
+		}
         if (Input.GetKeyDown(KeyCode.Space)) {
             Jump();
         }
@@ -41,22 +46,25 @@ public class PlayerMovement : MonoBehaviour {
 
     void Move()
     {
-        if (Input.GetKey(KeyCode.A))
-        {
-            rb.AddForce(transform.right * moveForce * -1);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            rb.AddForce(transform.right * moveForce);
-        }
-        if (rb.velocity.z > maxSpeed)
-        {
-            rb.velocity = new Vector3(rb.velocity.x,rb.velocity.y, maxSpeed); 
-        }
-        if (rb.velocity.z < maxSpeed *-1)
-        {
-            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, maxSpeed *-1);
-        }
+		if(frozenTime <= 0 ){
+			if (Input.GetKey(KeyCode.A))
+			{
+				rb.AddForce(transform.right * moveForce * -1);
+			}
+			if (Input.GetKey(KeyCode.D))
+			{
+				rb.AddForce(transform.right * moveForce);
+			}
+			if (rb.velocity.z > maxSpeed)
+			{
+				rb.velocity = new Vector3(rb.velocity.x,rb.velocity.y, maxSpeed); 
+			}
+			if (rb.velocity.z < maxSpeed *-1)
+			{
+				rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, maxSpeed *-1);
+			}
+		}
+
 
     }
 
