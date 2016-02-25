@@ -28,7 +28,7 @@ public class StageEnd : MonoBehaviour {
 			rb.velocity = Vector3.zero;
 			//teleports the player to its start position(set manually)
 			player.transform.position = startPos;
-			pScript.frozenTime = 3;
+			pScript.frozenTime = 1;
 		}
 	}
 }

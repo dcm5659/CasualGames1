@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour {
         }
         Move();
         fallCheck();
-        Debug.Log("speed " + rb.velocity);
+        //Debug.Log("speed " + rb.velocity);
     }
 
     void Jump()
