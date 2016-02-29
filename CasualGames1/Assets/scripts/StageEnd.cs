@@ -4,16 +4,14 @@ using System.Collections;
 public class StageEnd : MonoBehaviour {
 
 	public GameObject player;
-	public Vector3 startPos;
-	private Rigidbody rb;
-	private PlayerMovement pScript;
+	public GameObject GM;
 
+	private gameManager gmScript;
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find ("Capsule");
-		//reference to the players rigidbody
-		rb = player.GetComponent<Rigidbody> ();
-		pScript = GameObject.Find ("Capsule").GetComponent<PlayerMovement>();
+		//manager script reference
+		gmScript = GameObject.Find ("GM").GetComponent<gameManager>();
 	}
 	
 	// Update is called once per frame
@@ -24,11 +22,7 @@ public class StageEnd : MonoBehaviour {
 	void OnCollisionEnter(Collision col){
 		//collision between player and end object
 		if (col.gameObject == player) {
-			//sets the velocity to 0
-			rb.velocity = Vector3.zero;
-			//teleports the player to its start position(set manually)
-			player.transform.position = startPos;
-			pScript.frozenTime = 1;
+			gmScript.changeLevel();
 		}
 	}
 }
