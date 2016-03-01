@@ -4,12 +4,13 @@ using System.Collections;
 public class Shooter : MonoBehaviour {
 
     public GameObject prefab;
-	public int ammo = 5;
-
+	public int maxAmmo = 5;
+	private int ammo;
     Light mainLight;
     // Use this for initialization
     void Start () {
         mainLight = GameObject.Find("Directional Light").GetComponent<Light>();
+		ammo = maxAmmo;
 	}
 	
 	// Update is called once per frame
@@ -32,4 +33,8 @@ public class Shooter : MonoBehaviour {
 			ammo--;
 		}
     }
+
+	public void Reload(){
+		ammo = maxAmmo;
+	}
 }

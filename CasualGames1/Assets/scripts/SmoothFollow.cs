@@ -55,4 +55,11 @@ public class SmoothFollow : MonoBehaviour
 		transform.forward = Vector3.Lerp (transform.forward, target.forward , Time.deltaTime * rotationDamping);*/
 
     }
+
+	public void CorrectX(Vector3 wanted){
+		Vector3 temp = new Vector3 (transform.position.x, transform.position.y, wanted.z);
+		transform.position = temp;
+	}
+
+
 }
