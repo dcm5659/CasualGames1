@@ -5,8 +5,10 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
     
     public Rigidbody rb;
-    private bool jumping;
+	public GameObject bounceText;
 	public float frozenTime = 1;
+
+	private bool jumping;
 	private float jumpForce;
 	private float moveForce;
     private float maxSpeed;
@@ -22,7 +24,6 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 		if(frozenTime > 0){
 			frozenTime -= Time.deltaTime;
 		}
@@ -73,8 +74,12 @@ public class PlayerMovement : MonoBehaviour {
         if (col.gameObject.tag == "Platform")
         {
             jumping = false;
-            //Debug.Log("able to jump");
-        }
+		}
+		if (col.gameObject.tag=="Bouncy")
+		{
+			jumping=false;
+			bounceText.SetActive(true);
+		}
     }
 
     void fallCheck()

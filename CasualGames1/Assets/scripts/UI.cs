@@ -19,7 +19,6 @@ public class UI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		still=GameObject.Find("Capsule").GetComponent<PlayerMovement>();
-
 	}
 	
 	// Update is called once per frame

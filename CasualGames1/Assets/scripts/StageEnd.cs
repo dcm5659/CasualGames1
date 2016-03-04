@@ -23,6 +23,7 @@ public class StageEnd : MonoBehaviour {
 		//collision between player and end object
 		if (col.gameObject == player) {
 			gmScript.changeLevel();
+			Destroy (gameObject);
 		}
 	}
 }
