@@ -11,7 +11,8 @@ public class Shooter : MonoBehaviour {
     void Start () {
         mainLight = GameObject.Find("Directional Light").GetComponent<Light>();
 		ammo = maxAmmo;
-	}
+        mainLight.enabled = !mainLight.enabled;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -20,10 +21,10 @@ public class Shooter : MonoBehaviour {
             spawnFlare();
         }
 
-        if (Input.GetKeyDown("l"))
-        {
-            mainLight.enabled = !mainLight.enabled;
-        }
+        //if (Input.GetKeyDown("l"))
+        //{
+        //    mainLight.enabled = !mainLight.enabled;
+        //}
     }
 
     void spawnFlare() {
